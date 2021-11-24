@@ -1,0 +1,11 @@
+name: HCR
+channels:
+  - open3d-admin
+  - dsdale24
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - notebook
+prefix: /opt/anaconda3/envs/HCR

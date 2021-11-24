@@ -47,4 +47,4 @@ def binarize_images_from_dir(input_path, output_path):
     print('Бинаризация завершена')
 
 
-binarize_images_from_dir('DetectingWordsNN/data/input', 'DetectingWordsNN/data/output')
+binarize_images_from_dir('DetectingWordsNN/data/bin_input', 'DetectingWordsNN/data/input')

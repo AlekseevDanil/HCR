@@ -8,4 +8,9 @@ channels:
 dependencies:
   - python=3.8
   - notebook
+  - opencv
+  - path
+  - pytorch
+  - matplotlib
+  - scikit-learn
 prefix: /opt/anaconda3/envs/HCR

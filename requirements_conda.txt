@@ -1,0 +1,2 @@
+#for conda to work properly
+opencv-python

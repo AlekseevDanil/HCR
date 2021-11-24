@@ -8,14 +8,14 @@ def binarize_image(file_name):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # бинаризация изображения
-    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+    #thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
     # cv2.imshow("THRESH", thresh)  # показать получившееся изображение
     # cv2.waitKey(0)  # закрыть окно с изображением по нажатию любой кнопки
 
     # в строке 19 адаптивная бинаризация. тут надо менять последние 2 параметра
     # 17, 8 определяют размер площади на которых проходит адаптисная бинаризация
     # метод сделан на случай если на изобржении не равномерная яркость (засвет скана, пятна и т.д.).
-    # thresh4 = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 17, 8)
+    thresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 17, 8)
     # cv2.imshow("THRESH4", thresh4)
     # cv2.waitKey(0)
     return thresh
@@ -28,7 +28,7 @@ def binarize_images_from_dir(input_path, output_path):
     :return:
     '''
     res = []
-    for ext in ['*.png', '*.jpg', '*.bmp']:
+    for ext in ['*.png', '*.jpg', '*.jpeg', '*.bmp']:
         res += Path(input_path).files(ext)
     if len(res) == 0:
         print('Изображений для обработки не обнаружено. проверьте путь')

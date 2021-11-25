@@ -13,4 +13,6 @@ dependencies:
   - pytorch
   - matplotlib
   - scikit-learn
+  - pandas
+  - tqdm
 prefix: /opt/anaconda3/envs/HCR

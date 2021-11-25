@@ -15,7 +15,7 @@ def binarize_image(file_name):
     # в строке 19 адаптивная бинаризация. тут надо менять последние 2 параметра
     # 17, 8 определяют размер площади на которых проходит адаптисная бинаризация
     # метод сделан на случай если на изобржении не равномерная яркость (засвет скана, пятна и т.д.).
-    thresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 17, 8)
+    thresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 21)
     # cv2.imshow("THRESH4", thresh4)
     # cv2.waitKey(0)
     return thresh

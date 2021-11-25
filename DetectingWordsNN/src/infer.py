@@ -107,4 +107,3 @@ def extract_words(input_path,output_path, delta):
         cv2.waitKey(0)
 
 extract_words('../data/input', '../data/output', 5)
-

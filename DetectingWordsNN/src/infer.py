@@ -12,20 +12,18 @@ from eval import evaluate
 from net import WordDetectorNet
 from visualization import visualize_and_plot
 
-
+'''
 def main():
     parser = argparse.ArgumentParser()
     # поределяем на каком устройстве будет работать сеть cuda - видеокарта
     parser.add_argument('--device', choices=['cpu', 'cuda'], default='cpu')
     args = parser.parse_args()
-
     net = WordDetectorNet()  # получаем архитектуру нашей нейронной сети без весов
     #  загружаем веса нашей нейронной сети
     net.load_state_dict(torch.load('../model/weights', map_location=args.device))
     net.eval()  # переводим сеть в режим распознавания (вдруг она была в режиме обучения)
     #print(net)  # на случай если интересно посмотреть ее архитектуру
     net.to(args.device)  # отправляем нейронку на устройство которое выбрали
-
     #
     loader = DataLoaderImgFile(Path('../data/input'), net.input_size, args.device)
     res = evaluate(net, loader, max_aabbs=1000)
@@ -41,16 +39,14 @@ def main():
         cv2.imshow('input',img)
         cv2.waitKey(0)
         cv2.imwrite(f'./image-{i}.png', img*255)
-
-
 #if __name__ == '__main__':
-#    main()
+#    main()'''
 
 
 
-def extract_words(input_path,output_path, delta):
+
+def extract_wordsNN(input_path,output_path, delta):
     '''
-
     :param input_path: директория с изображениями для поиска
     :param output_path: директория с сохраненными словами
     :param delta: отступ от границ детекта в пикселях, сделано чтобы хваосты слов не обрезать
@@ -70,12 +66,11 @@ def extract_words(input_path,output_path, delta):
     else:
         os.makedirs(output_path)
         print(f'директория {output_path} создана')
-
-    #определяем устройство работы
+    # определяем устройство работы
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print('Using device:', device)
 
-    #подгружаем нашу нейронную сеть
+    # подгружаем нашу нейронную сеть
     net = WordDetectorNet()  # получаем архитектуру нашей нейронной сети без весов
     #  загружаем веса нашей нейронной сети
     net.load_state_dict(torch.load('../model/weights', map_location=device))
@@ -105,5 +100,3 @@ def extract_words(input_path,output_path, delta):
         img2 = visualize_and_plot(img, aabbs, 5)  # покеазываем как выделили слова
         cv2.imshow('detected words', img2)
         cv2.waitKey(0)
-
-extract_words('../data/input', '../data/output', 5)

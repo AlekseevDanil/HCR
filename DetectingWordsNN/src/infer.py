@@ -93,8 +93,10 @@ def extract_wordsNN(input_path,output_path, delta):
             word = img[int(aabb.ymin - delta):int(aabb.ymax + delta), int(aabb.xmin - delta):int(aabb.xmax + delta)]
             file_name = output_path+'/' + img_name.split('.')[0] + '_' + str(index) + '.' + img_name.split('.')[1]
             try:
-                cv2.imwrite(file_name,word*255)
-            except:
+                print(file_name)
+                cv2.imwrite(file_name, word*255)
+            except Exception as error:
+                print(repr(error))
                 print('error with image writing')
             index+=1
         img2 = visualize_and_plot(img, aabbs, 5)  # покеазываем как выделили слова

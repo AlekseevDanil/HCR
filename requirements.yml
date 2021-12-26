@@ -8,7 +8,9 @@ channels:
 dependencies:
   - python=3.8
   - notebook
+  - editdistance
   - opencv
+  - tensorflow
   - path
   - pytorch
   - matplotlib

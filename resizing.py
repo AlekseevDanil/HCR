@@ -5,7 +5,7 @@ from typing import List
 
 def get_img_files(data_dir: Path) -> List[Path]:
     res = []
-    for ext in ['*.png', '*.jpeg', '*.bmp']:
+    for ext in ['*.png', '*.jpg', '*.bmp']:
         res += Path(data_dir).files(ext)
     return res
 
@@ -59,5 +59,5 @@ def resizing(input_path, output_path):
                 print('error with image writing')
 
 
-resizing('input/',
-         'output/')
+resizing('',
+         '')

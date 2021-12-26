@@ -34,3 +34,6 @@ def resizing_img (image, size = 900):
         f=size/width
         res_img = cv2.resize(img, None, fx=f, fy=f, interpolation=cv2.INTER_AREA)
         return res_img
+
+
+

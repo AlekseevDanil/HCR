@@ -140,3 +140,4 @@ def scaner(image):
     except Exception as e:
         return False, orig
 
+

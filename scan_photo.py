@@ -1,7 +1,7 @@
 # импортирование необходимых библиотек
 # тут новый пакет skimage
 # from skimage.filters import threshold_local
-#
+
 import numpy as np
 import cv2
 import imutils
@@ -12,13 +12,14 @@ from typing import List
 
 def get_img_files(data_dir: Path) -> List[Path]:
     res = []
-    for ext in ['*.png', '*.jpeg', '*.bmp']:
+    for ext in ['*.png', '*.jpg', '*.bmp']:
         res += Path(data_dir).files(ext)
     return res
 
 
 def scaner(file_list):
-    # смотри что собрал - сканер документа по фотографии, работает даже если фото под наклоном главное чтобы фон был темнее листа
+    # смотри что собрал - сканер документа по фотографии,
+    # работает даже если фото под наклоном главное чтобы фон был темнее листа
     # фон светлый потому границы листа не найдены параметр для сканируемого изображения
     for file in file_list:
         args_image = file
@@ -141,5 +142,5 @@ def scaner(file_list):
             print('на изображении контраст между листом и тетрадью плохой.надо выбрать фон темнее')
 
 
-file_list = get_img_files('output/')
+file_list = get_img_files('')
 scaner(file_list)

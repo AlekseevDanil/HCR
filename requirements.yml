@@ -6,17 +6,18 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.8
+  - scikit-image
   - notebook
-  - editdistance
-  - opencv
-  - tensorflow
   - path
   - pytorch
-  - matplotlib
-  - scikit-learn
   - pandas
+  - opencv
   - tqdm
   - imutils
-  - scikit-image
+  - python=3.8
+  - matplotlib
+  - tensorflow==2.4.3
+  - scikit-learn
+  - editdistance
+  - keras==2.4.3
 prefix: /opt/anaconda3/envs/HCR
